@@ -25,6 +25,10 @@ namespace MyFirstAPI.Controllers
         public ActionResult<IEnumerable<Product>> GetProduct(int id)
         {
             var product = _context.Products.Find(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
             return Ok(product);
         }
     }
