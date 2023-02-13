@@ -51,5 +51,31 @@ namespace MyFirstAPI.Controllers
                 new { id = product.Id },
                 product);
         }
+
+        [HttpPut]
+        public async Task<ActionResult<Product>> PutProduct(int id, Product product)
+        {
+            if (id != product.Id)
+            {
+                return BadRequest();
+            }
+            _context.Entry(product).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Products.Any(p => p.Id == id))
+                {
+                    return NotFound();
+                } else
+                {
+                    throw;
+                }
+            }
+            return NoContent();
+        }
     }
 }
