@@ -13,8 +13,8 @@ builder.Services.AddApiVersioning(options =>
     options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
     options.AssumeDefaultVersionWhenUnspecified = true;
 
-    //options.ApiVersionReader = new HeaderApiVersionReader("X-API-Version");
-    options.ApiVersionReader = new QueryStringApiVersionReader("hps-api-version"); // overrides the default name of "api-version", which is included in the nuget package Mvc.Versioning
+    options.ApiVersionReader = new HeaderApiVersionReader("X-API-Version");
+    // options.ApiVersionReader = new QueryStringApiVersionReader("hps-api-version"); // overrides the default name of "api-version", which is included in the nuget package Mvc.Versioning
 });
 
 builder.Services.AddVersionedApiExplorer(options =>
@@ -32,6 +32,15 @@ builder.Services.AddDbContext<ShopContext>(options =>
     options.UseInMemoryDatabase("Shop");
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder
+            .WithOrigins("https://localhost:7209")
+            .WithHeaders("X-API-Version");
+    });
+});
 
 var app = builder.Build();
 
@@ -45,6 +54,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors();
 
 app.MapControllers();
 

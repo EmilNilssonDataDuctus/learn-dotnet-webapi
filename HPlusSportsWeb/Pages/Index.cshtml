@@ -7,9 +7,9 @@
 <ul id="products-list">
 </ul>
 @section Scripts {
-    <scripts>
-        let url = "https://localhost:7233/products";
-        let productsList = document.getElementById("produts-list");
+    <script>
+        let url = "https://localhost:7122/products";
+        let productsList = document.getElementById("products-list");
 
         fetch(url)
             .then(res => res.json())
@@ -17,15 +17,18 @@
             .catch(ex => {
                 alert("Error!");
                 console.log(ex);
-        });
+            });
 
         function showProducts(products) {
-            products.forEach(product => {
+            return products.forEach(product => {
                 let li = document.createElement("li");
                 let text = `${product.name} (\$${product.price})`;
-                li.appendChild(document.createTextNode(text));
-                productsList.appendChild(li);
+                console.log("li: ", li);
+                console.log("text: ", text);
+                console.log("productsList: ", productsList);
+                 li.appendChild(document.createTextNode(text));
+                 productsList.appendChild(li);
             })
         }
-    </scripts>
+    </script>
     }
