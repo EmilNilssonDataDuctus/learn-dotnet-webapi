@@ -8,8 +8,8 @@
 </ul>
 @section Scripts {
     <script>
-        let url = "https://localhost:7122/products";
-        let productsList = document.getElementById("products-list");
+        const url = "https://localhost:7122/products";
+        const productsList = document.getElementById("products-list");
 
         fetch(url)
             .then(res => res.json())
@@ -20,14 +20,14 @@
             });
 
         function showProducts(products) {
-            return products.forEach(product => {
+            products.forEach(product => {
                 let li = document.createElement("li");
                 let text = `${product.name} (\$${product.price})`;
                 console.log("li: ", li);
                 console.log("text: ", text);
                 console.log("productsList: ", productsList);
-                 li.appendChild(document.createTextNode(text));
-                 productsList.appendChild(li);
+                li.appendChild(document.createTextNode(text));
+                productsList.appendChild(li);
             })
         }
     </script>
