@@ -23,9 +23,20 @@ namespace MyFirstAPI.Controllers
         //}
 
         [HttpGet]
-        public async Task<ActionResult> GetAllProducts([FromQuery] QueryParameters queryParameters)
+        public async Task<ActionResult> GetAllProducts([FromQuery] ProductQueryParameters queryParameters)
         {
             IQueryable<Product> products = _context.Products;
+
+            if (queryParameters != null)
+            {
+                products = products.Where(p => p.Price >= queryParameters.MinPrice);
+            }
+
+            if (queryParameters != null)
+            {
+                products = products.Where(p => p.Price <= queryParameters.MaxPrice);
+            }
+
             products = products
                 .Skip(queryParameters.Size * (queryParameters.Page - 1))
                 .Take(queryParameters.Size);
