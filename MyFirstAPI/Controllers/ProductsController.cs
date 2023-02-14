@@ -27,14 +27,24 @@ namespace MyFirstAPI.Controllers
         {
             IQueryable<Product> products = _context.Products;
 
-            if (queryParameters != null)
+            if (queryParameters.MinPrice != null)
             {
                 products = products.Where(p => p.Price >= queryParameters.MinPrice);
             }
 
-            if (queryParameters != null)
+            if (queryParameters.MaxPrice != null)
             {
                 products = products.Where(p => p.Price <= queryParameters.MaxPrice);
+            }
+
+            if (!string.IsNullOrEmpty(queryParameters.Sku))
+            {
+                products = products.Where(p => p.Sku.ToLower().Contains(queryParameters.Sku.ToLower()));
+            }
+
+            if (!string.IsNullOrEmpty(queryParameters.Name))
+            {
+                products = products.Where(p => p.Name.ToLower().Contains(queryParameters.Name.ToLower()));
             }
 
             products = products
