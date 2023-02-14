@@ -23,9 +23,6 @@
             products.forEach(product => {
                 let li = document.createElement("li");
                 let text = `${product.name} (\$${product.price})`;
-                console.log("li: ", li);
-                console.log("text: ", text);
-                console.log("productsList: ", productsList);
                 li.appendChild(document.createTextNode(text));
                 productsList.appendChild(li);
             })
