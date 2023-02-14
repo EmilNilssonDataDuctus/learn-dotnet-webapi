@@ -16,6 +16,13 @@ builder.Services.AddApiVersioning(options =>
     //options.ApiVersionReader = new HeaderApiVersionReader("X-API-Version");
     options.ApiVersionReader = new QueryStringApiVersionReader("hps-api-version"); // overrides the default name of "api-version", which is included in the nuget package Mvc.Versioning
 });
+
+builder.Services.AddVersionedApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV";
+    options.SubstituteApiVersionInUrl = true;
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

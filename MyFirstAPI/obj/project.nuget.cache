@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "W1/TbA3TnpHarnSXt7pjH/sVXLcJ5De5ImCai5N+d/SKH5DnNRcNPoAdyey2to5GnMmQ3UZcH3o03Q2zr9CzFg==",
+  "dgSpecHash": "g20CwTdtr991H5aWSuVgha7Z+5hUbKQZC4y4qBsBOq9oMR3RWBRMIW9+F65avbR5h1EGX9nXfflsHYER9P+MVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\eminilss\\source\\repos\\MyFirstAPI\\MyFirstAPI\\MyFirstAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eminilss\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
+    "C:\\Users\\eminilss\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning.apiexplorer\\5.0.0\\microsoft.aspnetcore.mvc.versioning.apiexplorer.5.0.0.nupkg.sha512",
     "C:\\Users\\eminilss\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.2\\microsoft.entityframeworkcore.7.0.2.nupkg.sha512",
     "C:\\Users\\eminilss\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.2\\microsoft.entityframeworkcore.abstractions.7.0.2.nupkg.sha512",
     "C:\\Users\\eminilss\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.2\\microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512",

@@ -42,3 +42,4 @@ C:\Users\eminilss\source\repos\MyFirstAPI\MyFirstAPI\bin\Debug\net6.0\Microsoft.
 C:\Users\eminilss\source\repos\MyFirstAPI\MyFirstAPI\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\eminilss\source\repos\MyFirstAPI\MyFirstAPI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 C:\Users\eminilss\source\repos\MyFirstAPI\MyFirstAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+C:\Users\eminilss\source\repos\MyFirstAPI\MyFirstAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
