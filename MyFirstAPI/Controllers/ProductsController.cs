@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HPlusSport.API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyFirstAPI.Models;
+using System.Linq;
 
 namespace MyFirstAPI.Controllers
 {
@@ -45,6 +47,14 @@ namespace MyFirstAPI.Controllers
             if (!string.IsNullOrEmpty(queryParameters.Name))
             {
                 products = products.Where(p => p.Name.ToLower().Contains(queryParameters.Name.ToLower()));
+            }
+
+            if (!string.IsNullOrEmpty(queryParameters.SortBy))
+            {
+                if (typeof(Product).GetProperty(queryParameters.SortBy) != null)
+                {
+                    products = products.OrderByCustom(queryParameters.SortBy, queryParameters.SortOrder);
+                }
             }
 
             products = products
